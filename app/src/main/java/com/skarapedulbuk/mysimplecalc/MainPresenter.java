@@ -23,6 +23,46 @@ public class MainPresenter implements MainContract.Presenter {
         this.model = new MainModel();
     }
 
+
+    public Double getArg1() {
+        return arg1;
+    }
+
+    public void setArg1(Double arg1) {
+        this.arg1 = arg1;
+    }
+
+    public void setArg2(Double arg2) {
+        this.arg2 = arg2;
+    }
+
+    public void setPrevOperator(Operations prevOperator) {
+        this.prevOperator = prevOperator;
+    }
+
+    public void setDotPressed(boolean dotPressed) {
+        isDotPressed = dotPressed;
+    }
+
+    public void setDivider(int divider) {
+        this.divider = divider;
+    }
+
+    public Double getArg2() {
+        return arg2;
+    }
+
+    public Operations getPrevOperator() {
+        return prevOperator;
+    }
+
+    public boolean isDotPressed() {
+        return isDotPressed;
+    }
+
+    public int getDivider() {
+        return divider;
+    }
     @Override
     public void onDigitButtonClicked(int digit) {
         if (arg2 == null) {
