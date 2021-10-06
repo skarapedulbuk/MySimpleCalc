@@ -21,15 +21,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         currentTextView = findViewById(R.id.text_view_current);
         historyTextView = findViewById(R.id.text_view_history);
 
-        if (savedInstanceState != null) {
-            historyTextView.setText(savedInstanceState.getString("ARG_HISTORY"));
-            presenter.setArg1(savedInstanceState.getDouble("ARG_1"));
-            presenter.setArg2((Double) savedInstanceState.getSerializable("ARG_2"));
-            presenter.setPrevOperator((Operations) savedInstanceState.getSerializable("ARG_OPER"));
-            presenter.setDivider(savedInstanceState.getInt("ARG_DIV"));
-            presenter.setDotPressed(savedInstanceState.getBoolean("ARG_DOT"));
-        }
-
         currentTextView.setText(String.valueOf(presenter.getArg1()));
 
         findViewById(R.id.key_0).setOnClickListener(v -> presenter.onDigitButtonClicked(0));
@@ -72,7 +63,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+
+        historyTextView.setText(savedInstanceState.getString("ARG_HISTORY"));
+        presenter.setArg1(savedInstanceState.getDouble("ARG_1"));
+        presenter.setArg2((Double) savedInstanceState.getSerializable("ARG_2"));
+        presenter.setPrevOperator((Operations) savedInstanceState.getSerializable("ARG_OPER"));
+        presenter.setDivider(savedInstanceState.getInt("ARG_DIV"));
+        presenter.setDotPressed(savedInstanceState.getBoolean("ARG_DOT"));
+
+        currentTextView.setText(String.valueOf(presenter.getArg1()));
     }
+
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
 
