@@ -10,17 +10,17 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/input_history1"
+        android:id="@+id/text_view_history"
         style="@style/TextViewStyle"
         tools:text="HISTORY" />
 
     <TextView
-        android:id="@+id/input_current1"
+        android:id="@+id/text_view_current"
         style="@style/TextViewStyle"
         android:textSize="48sp"
         tools:text="CURRENT" />
 
-    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <GridLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
