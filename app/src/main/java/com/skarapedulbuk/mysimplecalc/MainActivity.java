@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void showResult(int result) {
+    public void showResult(double result) {
         currentTextView.setText(String.valueOf(result));
     }
 
