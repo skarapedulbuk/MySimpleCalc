@@ -1,18 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/abac"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="5dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/input_history1"
+        style="@style/TextViewStyle"
+        tools:text="HISTORY" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/input_current1"
+        style="@style/TextViewStyle"
+        android:textSize="48sp"
+        tools:text="CURRENT" />
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:columnCount="5"
+        android:rowCount="4">
+
+        <Button
+            android:id="@+id/key_1"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_1" />
+
+        <Button
+            android:id="@+id/key_2"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_2" />
+
+        <Button
+            android:id="@+id/key_3"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:shadowColor="@color/black"
+            android:text="@string/key_3" />
+
+        <Button
+            android:id="@+id/key_plus"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_plus" />
+
+        <Button
+            android:id="@+id/key_c"
+            style="@style/BigButton"
+            android:layout_rowSpan="2"
+            android:layout_rowWeight="2"
+            android:layout_columnWeight="1"
+            android:text="@string/key_c" />
+
+        <Button
+            android:id="@+id/key_4"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_4" />
+
+        <Button
+            android:id="@+id/key_5"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_5" />
+
+        <Button
+            android:id="@+id/key_6"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_6" />
+
+        <Button
+            android:id="@+id/key_minus"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_minus" />
+
+        <Button
+            android:id="@+id/key_7"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_7" />
+
+        <Button
+            android:id="@+id/key_8"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_8" />
+
+        <Button
+            android:id="@+id/key_9"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_9" />
+
+        <Button
+            android:id="@+id/key_mul"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_mul" />
+
+        <Button
+            android:id="@+id/key_eq"
+            style="@style/BigButton"
+            android:layout_rowSpan="2"
+            android:layout_rowWeight="2"
+            android:layout_columnWeight="1"
+            android:text="@string/key_eq" />
+
+        <Button
+            android:id="@+id/key_0"
+            style="@style/BigButton"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:text="@string/key_0" />
+
+        <Button
+            android:id="@+id/key_dot"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_dot" />
+
+        <Button
+            android:id="@+id/key_div"
+            style="@style/BigButton"
+            android:layout_columnWeight="1"
+            android:text="@string/key_div" />
+    </GridLayout>
+
+</LinearLayout>
