@@ -3,21 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/abac"
-    android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="5dp"
-    tools:context=".MainActivity">
+    android:gravity="bottom"
+    android:padding="5dp">
 
     <TextView
         android:id="@+id/text_view_history"
         style="@style/TextViewStyle"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
         tools:text="HISTORY" />
 
     <TextView
         android:id="@+id/text_view_current"
         style="@style/TextViewStyle"
-        android:textSize="48sp"
+        android:textSize="30sp"
         tools:text="CURRENT" />
 
     <GridLayout

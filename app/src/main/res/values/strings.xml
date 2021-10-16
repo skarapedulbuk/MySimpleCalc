@@ -17,4 +17,12 @@
     <string name="key_div">/</string>
     <string name="key_eq">=</string>
     <string name="key_c">CE</string>
+    <string name="dot_is_pressed">Точка уже была нажата!</string>
+    <string name="ARG_HISTORY">ARG_HISTORY</string>
+    <string name="ARG_1">ARG_1</string>
+    <string name="ARG_2">ARG_2</string>
+    <string name="ARG_DIV">ARG_DIV</string>
+    <string name="ARG_DOT">ARG_DOT</string>
+    <string name="ARG_OPER">ARG_OPER</string>
+
 </resources>
