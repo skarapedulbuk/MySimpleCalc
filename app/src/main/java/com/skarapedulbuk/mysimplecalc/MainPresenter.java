@@ -1,6 +1,5 @@
 package com.skarapedulbuk.mysimplecalc;
 
-import android.content.Context;
 import android.widget.Toast;
 
 public class MainPresenter implements MainContract.Presenter {
@@ -8,7 +7,7 @@ public class MainPresenter implements MainContract.Presenter {
     private static final int BASE = 10;
 
     private final MainModel model;
-    private final MainContract.View view;
+    private final MainActivity view;
 
     private Double arg1 = 0.0;
     private Double arg2 = null;
@@ -18,7 +17,7 @@ public class MainPresenter implements MainContract.Presenter {
     private boolean isDotPressed;
     private int divider;
 
-    public MainPresenter(MainContract.View view) {
+    public MainPresenter(MainActivity view) {
         this.view = view;
         this.model = new MainModel();
     }
@@ -72,7 +71,7 @@ public class MainPresenter implements MainContract.Presenter {
             } else {
                 arg1 = arg1 * BASE + digit;
             }
-            view.showResult(arg1);
+            displayResult(arg1);
         } else {
             if (isDotPressed) {
                 arg2 = arg2 + digit / (double) divider;
@@ -80,10 +79,13 @@ public class MainPresenter implements MainContract.Presenter {
             } else {
                 arg2 = arg2 * BASE + digit;
             }
-            view.showResult(arg2);
+            displayResult(arg2);
         }
     }
 
+    public  void displayResult(double result){
+        view.showResult(result);
+    }
     @Override
     public void onOperatorButtonClicked(Operations operator) {
         if (prevOperator != null) {
@@ -113,7 +115,7 @@ public class MainPresenter implements MainContract.Presenter {
     @Override
     public void onDotButtonClicked() {
         if (isDotPressed) {
-            Toast.makeText((Context) view, "Точка уже была нажата!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view, R.string.dot_is_pressed, Toast.LENGTH_SHORT).show();
         } else {
             isDotPressed = true;
             divider = BASE;

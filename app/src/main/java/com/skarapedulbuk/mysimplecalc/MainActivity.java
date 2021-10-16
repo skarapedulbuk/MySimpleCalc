@@ -1,5 +1,4 @@
 package com.skarapedulbuk.mysimplecalc;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,8 +19,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         presenter = new MainPresenter(this);
         currentTextView = findViewById(R.id.text_view_current);
         historyTextView = findViewById(R.id.text_view_history);
-
-        currentTextView.setText(String.valueOf(presenter.getArg1()));
 
         findViewById(R.id.key_0).setOnClickListener(v -> presenter.onDigitButtonClicked(0));
         findViewById(R.id.key_1).setOnClickListener(v -> presenter.onDigitButtonClicked(1));
@@ -61,28 +58,34 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        currentTextView.setText(String.valueOf(presenter.getArg1()));
+        //  Toast.makeText(getApplicationContext(), "onResume()", Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        historyTextView.setText(savedInstanceState.getString("ARG_HISTORY"));
-        presenter.setArg1(savedInstanceState.getDouble("ARG_1"));
-        presenter.setArg2((Double) savedInstanceState.getSerializable("ARG_2"));
-        presenter.setPrevOperator((Operations) savedInstanceState.getSerializable("ARG_OPER"));
-        presenter.setDivider(savedInstanceState.getInt("ARG_DIV"));
-        presenter.setDotPressed(savedInstanceState.getBoolean("ARG_DOT"));
-
-        currentTextView.setText(String.valueOf(presenter.getArg1()));
+        historyTextView.setText(savedInstanceState.getString(getString(R.string.ARG_HISTORY)));
+        presenter.setArg1(savedInstanceState.getDouble(getString(R.string.ARG_1)));
+        presenter.setArg2((Double) savedInstanceState.getSerializable(getString(R.string.ARG_2)));
+        presenter.setPrevOperator((Operations) savedInstanceState.getSerializable(getString(R.string.ARG_OPER)));
+        presenter.setDivider(savedInstanceState.getInt(getString(R.string.ARG_DIV)));
+        presenter.setDotPressed(savedInstanceState.getBoolean(getString(R.string.ARG_DOT)));
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
 
-        outState.putString("ARG_HISTORY", historyTextView.getText().toString());
-        outState.putDouble("ARG_1", presenter.getArg1());
-        outState.putSerializable("ARG_2", presenter.getArg2());
-        outState.putInt("ARG_DIV", presenter.getDivider());
-        outState.putBoolean("ARG_DOT", presenter.isDotPressed());
-        outState.putSerializable("ARG_OPER", presenter.getPrevOperator());
+        outState.putString(getString(R.string.ARG_HISTORY), historyTextView.getText().toString());
+        outState.putDouble(getString(R.string.ARG_1), presenter.getArg1());
+        outState.putSerializable(getString(R.string.ARG_2), presenter.getArg2());
+        outState.putInt(getString(R.string.ARG_DIV), presenter.getDivider());
+        outState.putBoolean(getString(R.string.ARG_DOT), presenter.isDotPressed());
+        outState.putSerializable(getString(R.string.ARG_OPER), presenter.getPrevOperator());
 
         super.onSaveInstanceState(outState);
     }
