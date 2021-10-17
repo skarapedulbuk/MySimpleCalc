@@ -35,8 +35,7 @@
             android:id="@+id/key_2"
             style="@style/MatButton.Digit"
             android:layout_columnWeight="1"
-            android:text="@string/key_2"
-            android:textAlignment="center" />
+            android:text="@string/key_2" />
 
         <Button
             android:id="@+id/key_3"
