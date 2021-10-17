@@ -40,7 +40,7 @@
         <item name="android:textColor">@color/digit_btn_color</item>
     </style>
 
-    <style name="RadioButton">
+    <style name="RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
         <item name="android:textSize">30sp</item>
     </style>
 </resources>

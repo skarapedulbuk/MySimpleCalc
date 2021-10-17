@@ -1,11 +1,13 @@
 package com.skarapedulbuk.mysimplecalc;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.skarapedulbuk.mysimplecalc.storage.ThemeStorage;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
@@ -13,9 +15,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private TextView currentTextView;
     private TextView historyTextView;
 
+    private ThemeStorage themeStorage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // setTheme(R.style.Theme_MySimpleCalc_V2);
+
+        themeStorage = new ThemeStorage(this);
+        setTheme(themeStorage.getAppTheme().getTheme());
+
         setContentView(R.layout.activity_main);
 
         presenter = new MainPresenter(this);
@@ -43,8 +52,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         findViewById(R.id.key_dot).setOnClickListener(v -> presenter.onDotButtonClicked());
 
         findViewById(R.id.key_settings).setOnClickListener(v -> {
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         });
     }
 
