@@ -1,5 +1,8 @@
 package com.skarapedulbuk.mysimplecalc;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.Intent;
 import android.widget.Toast;
 
 public class MainPresenter implements MainContract.Presenter {
@@ -131,5 +134,6 @@ public class MainPresenter implements MainContract.Presenter {
         arg1 = 0.0;
         isDotPressed = false;
     }
+
 
 }

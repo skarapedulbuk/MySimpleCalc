@@ -1,7 +1,9 @@
 package com.skarapedulbuk.mysimplecalc;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         findViewById(R.id.key_c).setOnClickListener(v -> presenter.onCeButtonClicked());
         findViewById(R.id.key_dot).setOnClickListener(v -> presenter.onDotButtonClicked());
+
+        findViewById(R.id.key_settings).setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+        });
     }
 
     @Override
