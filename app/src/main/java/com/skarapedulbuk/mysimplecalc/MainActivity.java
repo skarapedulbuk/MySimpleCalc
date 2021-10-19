@@ -1,21 +1,40 @@
 package com.skarapedulbuk.mysimplecalc;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.skarapedulbuk.mysimplecalc.storage.ThemeStorage;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
+    public static final String APP_THEME = "APP_THEME";
 
     private MainPresenter presenter;
     private TextView currentTextView;
     private TextView historyTextView;
 
     private ThemeStorage themeStorage;
+
+    ActivityResultLauncher<Intent> settingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == Activity.RESULT_OK) {
+                if (result.getData() != null) {
+                    Theme theme = (Theme) result.getData().getSerializableExtra(APP_THEME);
+                    themeStorage.setAppTheme(theme);
+                    recreate();
+                }
+            }
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +72,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         findViewById(R.id.key_settings).setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            Theme theme = themeStorage.getAppTheme();
+            intent.putExtra(SettingsActivity.APP_THEME, theme);
+            //startActivity(intent);
+            settingsLauncher.launch(intent);
         });
     }
 
@@ -78,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onResume();
         currentTextView.setText(String.valueOf(presenter.getArg1()));
         //  Toast.makeText(getApplicationContext(), "onResume()", Toast.LENGTH_SHORT).show();
-
     }
 
     @Override

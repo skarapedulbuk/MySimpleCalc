@@ -25,8 +25,8 @@
     <string name="ARG_DOT">ARG_DOT</string>
     <string name="ARG_OPER">ARG_OPER</string>
     <string name="text_settings">Настройки</string>
-    <string name="theme_1">Тема1</string>
-    <string name="theme_2">Тема2</string>
-    <string name="ok_button">Применить</string>
+    <string name="theme_1">Тема 1</string>
+    <string name="theme_2">Тема 2</string>
+    <string name="ok_button">Назад</string>
 
 </resources>

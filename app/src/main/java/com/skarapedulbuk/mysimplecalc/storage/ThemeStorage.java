@@ -7,11 +7,9 @@ import com.skarapedulbuk.mysimplecalc.Theme;
 
 public class ThemeStorage {
     private static final String APP_THEME = "APP_THEME";
-    private Context context;
-    private SharedPreferences sharedPreferences;
+    private final SharedPreferences sharedPreferences;
 
     public ThemeStorage(Context context) {
-        this.context = context;
         this.sharedPreferences = context.getSharedPreferences("theme", Context.MODE_PRIVATE);
     }
 
