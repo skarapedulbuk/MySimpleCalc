@@ -4,17 +4,39 @@
     <style name="TextViewStyle" parent="@style/TextAppearance.AppCompat.Display1">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">@dimen/text_size</item>
         <item name="android:gravity">right</item>
-        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_margin">@dimen/text_margin</item>
+        <item name="android:font">@font/font1</item>
         <item name="android:background">@color/white</item>
-        <item name="android:textColor">#2F4F4F</item>
+        <item name="android:textColor">@color/textViewTextColor</item>
     </style>
 
-    <style name="BigButton" parent="@style/Widget.AppCompat.Button.Colored">
-        <item name="android:textSize">30sp</item>
-        <item name="android:backgroundTint">#2F4F4F</item>
+    <style name="TextViewStyle.Big">
+        <item name="android:textSize">@dimen/text_size_big</item>
+    </style>
+
+    <style name="BigButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:font">@font/font1</item>
+        <item name="android:radius">10dp</item>
+        <item name="android:backgroundTint">@color/textViewTextColor</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="MatButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:fontFamily">@font/font1</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">@dimen/button_layout_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/button_layout_margin</item>
+    </style>
+
+    <style name="MatButton.Digit">
+        <item name="android:backgroundTint">@color/digit_btn_bgrd_color</item>
+        <item name="android:textColor">@color/digit_btn_color</item>
     </style>
 </resources>
