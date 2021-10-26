@@ -39,4 +39,8 @@
         <item name="android:backgroundTint">@color/digit_btn_bgrd_color</item>
         <item name="android:textColor">@color/digit_btn_color</item>
     </style>
+
+    <style name="RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:textSize">30sp</item>
+    </style>
 </resources>

@@ -62,6 +62,7 @@ public class MainPresenter implements MainContract.Presenter {
     public int getDivider() {
         return divider;
     }
+
     @Override
     public void onDigitButtonClicked(int digit) {
         if (arg2 == null) {
@@ -83,9 +84,10 @@ public class MainPresenter implements MainContract.Presenter {
         }
     }
 
-    public  void displayResult(double result){
+    public void displayResult(double result) {
         view.showResult(result);
     }
+
     @Override
     public void onOperatorButtonClicked(Operations operator) {
         if (prevOperator != null) {
@@ -131,5 +133,6 @@ public class MainPresenter implements MainContract.Presenter {
         arg1 = 0.0;
         isDotPressed = false;
     }
+
 
 }
